@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Where My BEST</title>
+    
+    <link href="css/style.css" rel="stylesheet">    
+    <link href="lib/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        
+    <!--<script src="cordova.js"></script>-->
+    <script src="lib/jquery-2.1.3.min.js"></script>
+    <script src="lib/jquery.autocomplete.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?v=3.21&language=en"></script>
+	<script src="lib/fastclick.js"></script>
+		
+	<script src="js/properties.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controls.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/util.js"></script>
+	<script src="js/api.js"></script>
+	<script src="js/sqlite.js"></script>
+	<script src="js/routes.js"></script>
+	<script src="js/auditTrail.js"></script>
+	
+	<script src="js/pg/PG_CTB.js"></script>
+	<script src="js/pg/PG_RouteController.js"></script>
+</head>
+
+<body>
+	<div id="map-overlay"></div>
+	<div id="overlay"></div>
+	<div id="spinner"><i class="fa fa-spinner fa-spin fa-4x"></i><span class="message"></span></div>
+	
+	<div id="map-canvas"></div>
+		
+	<div id="search-dialog">
+		<div class="from">
+			<div class="label"><i class="fa fa-map-marker" style="color:#00DFA2;"></i></div>
+			<div class="value"></div>
+		</div>
+		<div class="to">
+			<div class="label"><i class="fa fa-map-marker" style="color:#FF0000;"></i></div>
+			<div class="value">
+				<input type="text" id="destination" placeholder="going to..."/>
+			</div>
+		</div>
+		<div class="action">			
+			<button id="searchBus-button" type="button" disabled="disabled" class="disabled"><i class="fa fa-search"></i>Track Bus</button>
+		</div>		
+	</div>		
+	
+	<div id="reset-search">
+		<div><img src="img/bus.png" id="resetSearch-button"></div>	
+	</div>
+	
+	<div id="showRouteDetails-frame">
+		<div id="showRouteDetails-button"></div>
+	</div>
+	<div id="routeDetails-panel">
+		<div class="header">
+			<span class="title"></span>
+			<span id="closeRouteDetails-button"><i class="fa fa-times"></i></span>
+		</div>
+		<table class="details"></table>	
+	</div>
+	
+	<div id="busEta-frame">
+		<div id="busEta-button"></div>
+	</div>
+</body>
+</html>

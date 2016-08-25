@@ -1,0 +1,550 @@
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* iOS Status Bar */
+#ios7statusbar
+{
+    width: 100%;
+    height: 20px;
+    background-color: #FAFAFA;
+    position: fixed;
+    z-index: 100;
+}
+ 
+.ios7 .ui-page
+{
+    margin-top: 20px;
+}
+
+/* overlay + spinner  */
+#map-overlay {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	opacity: 0.1;
+	background-color: #FFFFFF;
+}
+
+#overlay {
+	display: none;
+	position: fixed;
+	z-index: 300;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	opacity: 0.2;
+	background-color: #4A4A4A;
+}
+
+#spinner {
+	display: none;
+	position: fixed;
+	z-index: 350;
+	top: 45%;
+	left: 0px;
+  	width: 100%;
+  	text-align: center;
+	color: #707070;
+	font-size: 18px;
+	color: #FFCC00;
+}
+
+#spinner.with-message {
+	padding: 10px;
+  	opacity: 0.8;
+  	color: #707070;
+}
+
+#spinner.with-message .fa-spinner{
+	font-size: 40px;
+}
+
+#spinner.with-message .message{
+	padding-left: 10px;
+}
+
+/* map */
+#map-canvas {
+	height: 100%
+}
+
+#map-canvas .me-label {
+   	color: #707070;
+	background-color: #FFFFFF;
+	font-size: 15px;
+	text-align: center;
+	border: 1px solid lightgray;
+	white-space: nowrap;
+	padding: 5px;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+#map-canvas .destination-label {
+   	color: #707070;
+	background-color: #FFFFFF;
+	font-size: 15px;
+	text-align: center;
+	border: 1px solid lightgray;
+	white-space: nowrap;
+	padding: 5px;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+#map-canvas .busstop-label {
+   	color: #707070;
+	background-color: white;
+	font-size: 15px;
+	text-align: center;
+	border: 1px solid lightgray;
+	white-space: nowrap;
+	padding: 5px;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+#map-canvas .bus-label {
+   	color: #707070;
+	background-color: white;
+	font-size: 15px;
+	text-align: center;
+	border: 1px solid lightgray;
+	white-space: nowrap;
+	padding: 5px;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+#map-canvas .bus-label .eta {
+   	font-size: 20px;
+}
+
+#map-canvas .busRoute-label {
+   	color: #707070;
+	background-color: white;
+	font-size: 15px;
+	text-align: center;
+	border: 1px solid lightgray;
+	white-space: nowrap;
+	padding: 5px;
+	opacity: 0.8;
+	border-radius: 5px;
+}
+
+/* reset search */
+#reset-search {
+	position: fixed;
+	z-index: 100;
+	top: 5%;
+	left: 5%;
+	height: 50px;
+	width: 50px;
+	/*background: #707070;*/
+        background: #EFEFEF;
+	box-shadow: 2px 2px 10px 1px #ccc;
+	-webkit-box-shadow: 2px 2px 10px 1px #ccc;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	padding: 15px;	
+	color: #FFFFFF;
+	font-size: 30px;
+}
+
+#resetSearch-button {
+	position: relative;
+	bottom: 2px;
+	right: 2px;
+	height:55px;
+	width:55px;
+}
+
+/* search dialog */
+#search-dialog {
+	position: fixed;
+	z-index: 200;
+	top: -100%;
+	left: 5%;
+	height: auto;
+	width: auto;
+	max-height: 80%;
+	max-width: 80%;
+	background: #144A80;
+	box-shadow: 5px 5px 10px 1px #ccc;
+	-webkit-box-shadow: 5px 5px 10px 1px #ccc;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 10px;	
+	color: #FFFFFF;
+	font-size: 30px;
+	transition: top 0.5s ease;
+	overflow: auto;
+        opacity: 0.9;
+}
+
+#search-dialog.fly-down {
+	top: 5%;
+	transition: top 0.5s ease;
+}
+
+#search-dialog .from .label {
+	position: absolute;
+	height: 34px;
+	width: 15px;
+	padding: 0px 0 0 5px;
+	/* color: #FF0000; */
+	/* color: #707070; */
+	/* color: #C6E1A8; */
+	color: #FFFFFF;
+	font-size: 25px;
+}
+
+#search-dialog .from .value {
+	position: relative;
+	height: auto;
+	width: auto;
+	min-height: 34px;
+	padding: 2px 43px 0 38px;
+	margin: 0;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	font-size: 20px;
+}
+
+#search-dialog .to {
+	margin-top: 10px;
+}
+
+#search-dialog .to .label {
+	position: absolute;
+	height: 34px;
+	width: 15px;
+	padding: 8px 0 0 5px;
+	/* color: #FF0000; */
+	/* color: #FA9E99; */
+	color: #FFCC00;	
+	font-size: 25px;
+}
+
+#search-dialog .to .value {
+	position: relative;
+	height: 33px;
+	width: auto;
+	padding: 2px 20px 0 38px;
+	margin: 0;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#search-dialog input[type='text'] {
+	width: 100%;
+	padding: 5px;
+	font-size: 25px;
+	color: #707070;
+	border: none;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;	
+	box-shadow: 1px 1px 5px #CCC;
+	-webkit-font-smoothing: antialiased;
+}
+
+#search-dialog .action {
+	margin: 25px 0px;
+	text-align: center;
+}
+
+#search-dialog #searchBus-button {
+	padding: 10px;
+	background: #00DFA2;
+	/*background: #FFCC00;*/
+	color: #FFFFFF;
+	/*color: #3D3D3D;*/
+	font-size: 20px;
+	border: none;
+	border-radius: 7px;
+	-webkit-border-radius: 20px;
+	box-shadow: 1px 1px 5px #3D3D3D;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#search-dialog #searchBus-button.disabled {
+	opacity: 0.7;	
+}
+
+#search-dialog #searchBus-button:focus {
+	outline: 0;
+}
+
+.autocomplete-suggestions { 
+	overflow: hidden;
+	background: #FFFFFF;
+	opacity: 0.9;
+	font-size: 20px;
+}
+.autocomplete-suggestion { 
+	padding: 10px;
+	color: #707070;
+	border-bottom: dotted 1px #E0E0E0;
+}
+.autocomplete-selected {
+	background: #E0E0E0;
+}
+.autocomplete-suggestions strong {
+	color: #029cca;
+	xcolor: #FFCC00;
+	font-weight: normal;
+}
+.autocomplete-no-suggestion {
+	padding: 10px;
+	xbackground: #FFCC00;
+	background: #FF3366;
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+/* show route details button */
+#showRouteDetails-frame {
+	position: fixed;
+	z-index: 100;
+	top: -100%;
+	left: 5%;
+	height: 80px;
+	width: 80px;
+	background: #707070;
+	box-shadow: 2px 2px 10px 1px #ccc;
+	-webkit-box-shadow: 2px 2px 10px 1px #ccc;
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	color: #FFFFFF;
+	font-size: 25px;
+	transition: top 0.5s ease;
+	text-align: center;
+	opacity: 0;
+}
+
+#showRouteDetails-frame.fly-down {
+	top: 78%;
+	transition: top 0.5s ease;
+	
+	opacity: 1;
+}
+
+#showRouteDetails-button {
+	margin: 15px 0px;
+}
+
+#showRouteDetails-button .measurement{
+	display: block;
+	font-size: 15px;
+}
+
+/* route details */
+#routeDetails-panel {
+	display: none;
+}
+
+#routeDetails-panel.non-gingerbread {
+	position: fixed;
+	z-index: 400;
+	top: -100%;
+	left: 10%;
+	max-height: 80%;
+	max-width: 80%;
+	box-shadow: 5px 5px 10px 1px #ccc;
+	-webkit-box-shadow: 5px 5px 10px 1px #ccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 10px;	
+	color: #707070;
+	background: #FFFFFF;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	height: 75%;
+	width: 75%;
+	display: none;
+	transition: top 0.5s ease;	
+}
+
+#routeDetails-panel.non-gingerbread.fly-down {
+	top: 10%;
+	transition: top 0.5s ease;	
+}
+
+#routeDetails-panel.gingerbread {
+	position: absolute;
+	z-index: 400;
+	top: 0px;
+	left: 0px;
+	max-height: none;
+	max-width: none;
+	box-shadow: 5px 5px 10px 1px #ccc;
+	-webkit-box-shadow: 5px 5px 10px 1px #ccc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 10px 10px 20px 10px;	
+	color: #707070;
+	background: #FFFFFF;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: auto;
+	width: 100%;
+	display: none;
+	opacity: 0;
+	transition: top 0.5s ease;
+}
+
+#routeDetails-panel.gingerbread.fly-down {
+	opacity: 1;
+	transition: top 0.5s ease;	
+}
+
+#routeDetails-panel .header{
+	position: absolute;
+	height: 50px;
+  	width: 100%;
+  	z-index: 500;
+}
+
+#routeDetails-panel .title{
+	font-weight: 500;
+}
+
+#routeDetails-panel #closeRouteDetails-button{
+	position: absolute;
+	right: 20px;
+	font-size: 25px;
+	padding: 5px 5px 10px 10px;
+}
+
+#routeDetails-panel table{
+	font-weight: 200;
+}
+
+#routeDetails-panel tr{
+}
+
+#routeDetails-panel .left{
+	width: 30%;
+	text-align: center;
+}
+
+#routeDetails-panel .right{
+}
+
+#routeDetails-panel .distance{
+	padding-left: 5px;
+    font-size: 12px;
+}
+
+#routeDetails-panel .head-sign{
+	padding-right: 5px;	
+    font-size: 12px;
+}
+
+#routeDetails-panel .arrowdown-img{
+	height: 50px;
+}
+
+#routeDetails-panel .bus-img{
+	height: 40px;
+	margin-right: 10px;
+}
+
+#routeDetails-panel .busstop-img{
+	height: 50px;
+}
+
+#routeDetails-panel .start-marker{
+	font-size: 35px;
+	color: #7AB13A;
+}
+
+#routeDetails-panel .destination-marker{
+	font-size: 35px;
+	color: #F7584C;
+}
+
+/* bus eta panel */
+#busEta-frame {
+	position: fixed;
+	z-index: 100;
+	top: -100%;
+	right: 5%;
+	height: 90px;
+	width: 90px;
+	background: #DDDDDD;
+	box-shadow: 2px 2px 10px 1px #ccc;
+	-webkit-box-shadow: 2px 2px 10px 1px #ccc;
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	color: orange;
+	font-size: 25px;
+	transition: top 0.5s ease;
+	text-align: center;
+	opacity: 0;
+}
+
+#busEta-frame.fly-down {
+	top: 5%;
+	transition: top 0.5s ease;	
+	opacity: 1;
+}
+
+#busEta-button {
+	margin: 15px 0px;
+}
+
+#busEta-frame .eta{
+	display: block;
+	xfont-size: 15px;
+}
+
+#busEta-frame .label{
+	xdisplay: block;
+	font-size: 15px;
+}
+
+#busEta-frame .bus-no{
+	font-size: 15px;
+}
+
+/* desktop */
+@media ( min-width: 960px ) {
+	#search-dialog {
+		max-width: 400px;
+	}
+}
+
+/* phone */
+@media (max-width: 480px) {
+	#search-dialog {
+		max-width: 85%;
+		max-height: 90%;	
+	}
+	
+	#search-dialog .action {
+		margin-top: 100px;
+	}
+}
+
+/* tablet */
+@media (max-width: 767px) {
+}
+
+@media screen and ( min-width: 720px ) {  
+}
